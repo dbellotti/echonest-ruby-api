@@ -65,6 +65,15 @@ module Echonest
       artists
     end
 
+    def similar
+      response = get_response(name: @name)
+      artists = []
+      response[:artists].each do |i|
+        artists << i[:name]
+      end
+      artists
+    end
+
     def songs
       songs = []
       get_response(name: @name)[:songs].each do |s|

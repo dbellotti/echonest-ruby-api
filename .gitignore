@@ -9,3 +9,5 @@ doc/*
 log/*
 pkg/*
 .DS_STORE
+*~
+vendor/
