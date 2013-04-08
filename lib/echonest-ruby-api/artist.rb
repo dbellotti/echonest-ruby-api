@@ -65,11 +65,12 @@ module Echonest
       artists
     end
 
-    def similar
-      response = get_response(name: @name)
+    def similar(options = {})
+      options = {name: @name}.merge(options)
+      response = get_response(options)
       artists = []
-      response[:artists].each do |i|
-        artists << i[:name]
+      response[:artists].each do |a|
+        artists << Artist.new(@api_key, a[:name], a[:foreign_ids])
       end
       artists
     end
