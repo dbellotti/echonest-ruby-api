@@ -9,7 +9,7 @@ module Echonest
 
   class Artist < Echonest::Base
 
-    attr_accessor :id, :name, :foreign_ids
+    attr_accessor :id, :name, :query_name, :foreign_ids
 
     def initialize(api_key, name = nil, foreign_ids = nil)
       @name = name
