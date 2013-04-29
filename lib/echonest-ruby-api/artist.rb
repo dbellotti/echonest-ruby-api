@@ -54,7 +54,13 @@ module Echonest
     end
 
     def list_genres
-      get_response[:genres]
+      get_response [:genres]
+    end
+
+    def profile(options = {})
+      options = {name: @query_name}.merge(options)
+      response = get_response(options)
+      Artist.new(@api_key, response[:name], response[:foreign_ids])
     end
 
     def search(options = {})
