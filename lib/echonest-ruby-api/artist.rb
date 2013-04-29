@@ -60,7 +60,7 @@ module Echonest
     def profile(options = {})
       options = {name: @query_name}.merge(options)
       response = get_response(options)
-      Artist.new(@api_key, response[:name], response[:foreign_ids])
+      Artist.new(@api_key, response[:artist][:name], response[:artist][:foreign_ids])
     end
 
     def search(options = {})
